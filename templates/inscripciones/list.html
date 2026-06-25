@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Inscripciones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 p-6 min-h-screen">
+    <div class="container mx-auto max-w-5xl">
+        
+        <header class="flex flex-col sm:flex-row justify-between items-center bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8 gap-4">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center border border-blue-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 
+0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 1 .037-.666c.084-.446.21-.883.37-1.296m7.534 1.962c.163.414.29.85.371 1.296.025.22.037.442.037.667v3h-3a2 2 0 0 1-2-2v-1c0-.430-.162-.843-.451-1.151" />
+                    </svg>
+                </div>
+            </div>
+            <a href="{% url 'inscripciones:create' %}" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-5 py-2.5 rounded-xl shadow-md transition-all duration-150 transform active:scale-95 block">
+                + Nueva inscripción
+            </a>
+        </header>
+
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden backdrop-blur-sm">
+            <table class="w-full text-left border-collapse min-w-[650px]">
+                <thead>
+                    <tr class="bg-gradient-to-r from-gray-50 to-gray-100/80 text-xs font-bold text-gray-500 uppercase tracking-wider border-b border-gray-200/60">
+                        <th class="p-5 text-center w-20">ID</th>
+                        <th class="p-5">Detalle de Inscripción</th>
+                        <th class="p-5 text-center w-40">Estado</th>
+                        <th class="p-5 text-center w-40">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100/80 text-sm text-gray-600">
+                    
+                    {% for inscripcion in inscripciones %}
+                    <tr class="hover:bg-blue-50/30 transition-all duration-200 group">
+                        
+                        <td class="p-5 text-center">
+                            <span class="font-mono text-xs font-semibold bg-gray-10
